@@ -1,4 +1,9 @@
 {
-    "presets":["es2017"],
-    "plugins" : ["transform-decorators-legacy"]
+    "presets": [
+        ["@babel/preset-env", { "useBuiltIns": "entry" }]
+    ],
+    "plugins": [
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        "@babel/transform-runtime"
+    ]
 }
