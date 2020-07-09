@@ -6,9 +6,9 @@ export class NegociacoesView extends View {
     template(model) {
 
         return `
-        <table class="table table-hover table-bordered">
+        <table class="table table-hover table-bordered table-striped mb-0">
             <thead>
-                <tr>
+                <tr class="bg-primary text-white">
                     <th>DATA</th>
                     <th>QUANTIDADE</th>
                     <th>VALOR</th>
