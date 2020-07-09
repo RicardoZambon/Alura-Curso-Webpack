@@ -1,5 +1,3 @@
-# Alura-Curso-Webpack
-
 # Alura Webpack
 Projeto de desenvolvimento do curso da Alura sobre Webpack.
 
