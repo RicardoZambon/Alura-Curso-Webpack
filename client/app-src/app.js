@@ -3,6 +3,10 @@ import { Negociacao } from './domain/index.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/mycss.css';
 
+import 'jquery/dist/jquery.js';
+import 'popper.js/dist/popper.js';
+import 'bootstrap/dist/js/bootstrap.js';
+
 const controller = new NegociacaoController();
 const negociacao = new Negociacao(new Date(), 1, 200);
 const headers = new Headers();

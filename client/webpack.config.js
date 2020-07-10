@@ -2,6 +2,7 @@ const path = require('path');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const terserJSPlugin = require('terser-webpack-plugin');
 const optimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const webpack = require('webpack');
 
 var config = {
     entry: './app-src/app.js',
@@ -55,6 +56,10 @@ var config = {
     plugins: [
         new miniCssExtractPlugin({
             filename: 'styles.css'
+        }),
+        new webpack.ProvidePlugin({
+            '$': 'jquery/dist/jquery.js',
+            'jQuery': 'jquery/dist/jquery.js'
         })
     ],
     optimization: {
