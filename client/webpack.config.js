@@ -1,8 +1,9 @@
 const path = require('path');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
+const terserJSPlugin = require('terser-webpack-plugin');
+const optimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-module.exports = {
-    mode: 'development',
+var config = {
     entry: './app-src/app.js',
     output: {
         filename: 'bundle.js',
@@ -55,5 +56,24 @@ module.exports = {
         new miniCssExtractPlugin({
             filename: 'styles.css'
         })
-    ]
+    ],
+    optimization: {
+        minimizer: [],
+    },
+}
+
+module.exports = (env, argv) => {
+
+    config.mode = argv.mode;
+
+    if (argv.mode === 'development') {
+        
+    }
+    
+    if (argv.mode === 'production') {
+        config.optimization.minimizer.push(new terserJSPlugin({}));
+        config.optimization.minimizer.push(new optimizeCSSAssetsPlugin({}));
+    }
+
+    return config;
 }
