@@ -76,6 +76,8 @@ module.exports = (env, argv) => {
     }
     
     if (argv.mode === 'production') {
+        config.plugins.push(new webpack.optimize.ModuleConcatenationPlugin());
+
         config.optimization.minimizer.push(new terserJSPlugin({}));
         config.optimization.minimizer.push(new optimizeCSSAssetsPlugin({}));
     }
