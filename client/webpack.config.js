@@ -2,14 +2,14 @@ const path = require('path');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const terserJSPlugin = require('terser-webpack-plugin');
 const optimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const htmlWebPackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 var config = {
     entry: './app-src/app.js',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: 'dist'
+        path: path.resolve(__dirname, 'dist')
     },
     module: {
         rules: [
@@ -54,6 +54,16 @@ var config = {
         ]
     },
     plugins: [
+        new htmlWebPackPlugin({
+            hash: true,
+            minify: {
+                html5: true,
+                collapseWhitespace: true,
+                removeComments: true
+            },
+            filename: 'index.html',
+            template: __dirname + '/main.html'
+        }),
         new miniCssExtractPlugin({
             filename: 'styles.css'
         }),
