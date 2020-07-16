@@ -64,6 +64,16 @@ var config = {
     ],
     optimization: {
         minimizer: [],
+        splitChunks: {
+            cacheGroups: {
+                vendorJS: {
+                    test: /[\\/]node_modules[\\/](jquery|bootstrap|reflect-metadata)[\\/](.(?!.*\.css$))*$/,
+                    name: 'vendorsJS',
+                    chunks: 'all',
+                    filename: 'vendors.bundle.js'
+                }
+            }
+        }
     },
 }
 
