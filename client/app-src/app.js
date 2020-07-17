@@ -1,3 +1,5 @@
+import 'reflect-metadata/Reflect';
+
 import { NegociacaoController } from './controllers/NegociacaoController.js';
 import { Negociacao } from './domain/index.js';
 import 'bootstrap/dist/css/bootstrap.css';

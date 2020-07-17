@@ -76,9 +76,9 @@ var config = {
         minimizer: [],
         splitChunks: {
             cacheGroups: {
-                vendorJS: {
+                vendors: {
                     test: /[\\/]node_modules[\\/](jquery|bootstrap|reflect-metadata)[\\/](.(?!.*\.css$))*$/,
-                    name: 'vendorsJS',
+                    name: 'vendors',
                     chunks: 'all',
                     filename: 'vendors.bundle.js'
                 }
