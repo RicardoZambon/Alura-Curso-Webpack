@@ -91,16 +91,22 @@ module.exports = (env, argv) => {
 
     config.mode = argv.mode;
 
+    let SERVICE_URL = JSON.stringify('http://localhost:3000');
+
     if (argv.mode === 'development') {
         
     }
     
     if (argv.mode === 'production') {
         config.plugins.push(new webpack.optimize.ModuleConcatenationPlugin());
+        
+        SERVICE_URL = jSON.stringify('http://your-api-address');
 
         config.optimization.minimizer.push(new terserJSPlugin({}));
         config.optimization.minimizer.push(new optimizeCSSAssetsPlugin({}));
     }
+
+    config.plugins.push(new webpack.DefinePlugin({ SERVICE_URL }));
 
     return config;
 }
